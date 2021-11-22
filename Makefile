@@ -1,4 +1,4 @@
-IMAGE_NAME = rshiny-s2i:4.0.5
+IMAGE_NAME ?= rshiny-s2i:4.0.5-latest
 
 .PHONY: build
 build:
