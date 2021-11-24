@@ -26,7 +26,10 @@ jobs:
           registries: 593291632749
 
       - name: Set up s2i
-        run: curl -L https://github.com/openshift/source-to-image/releases/download/v1.3.1/source-to-image-v1.3.1-a5a77147-linux-amd64.tar.gz | tar -xz -C /usr/bin
+        run: |
+          mkdir $RUNNER_TEMP/bin
+          curl -L https://github.com/openshift/source-to-image/releases/download/v1.3.1/source-to-image-v1.3.1-a5a77147-linux-amd64.tar.gz | tar -xz -C $RUNNER_TEMP/bin
+          echo "$RUNNER_TEMP/bin" >> $GITHUB_PATH
 
       - name: Check out code
         uses: actions/checkout@v2
